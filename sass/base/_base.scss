@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-inherit;
+}
+
+//This html declaration is NOT considered typography, because it defines what 1rem is equal,
+// so it is really more of a base declaration than a stylistic typography declaration
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
