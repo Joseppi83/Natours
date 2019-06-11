@@ -9,9 +9,49 @@
 //This html declaration is NOT considered typography, because it defines what 1rem is equal,
 // so it is really more of a base declaration than a stylistic typography declaration
 html {
+  //This is 1rem .626 * 16px = 10px
   font-size: 62.5%;
+
+  //MIXIN MEDIA EXAMPLE #1
+  // @include respond-phone {
+  //   font-size: 50%;
+  // }
+
+  // MIXIN MEDIA EXAMPLE #2
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+
+  @include respond(tab-land) {
+    //1rem = 9px, 9/16 = 56.25%
+    //width < 1200?
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    //1rem = 8px, 8/16 = 50%
+    //width < 900?
+    font-size: 50%;
+  }
+  //WE DON'T NEED THE BELOW MEDIA QUERY, BECAUSE WE WANT THE SAME FONT-SIZE FOR PHONES AND TABLETS ON PORTRAIT
+  // @include respond(phone) {
+  //   font-size: 50%;
+  // }
+  @include respond(big-desktop) {
+    //1rem = 12, 12/16 = 75%
+    font-size: 75%;
+  }
 }
 
 body {
   box-sizing: border-box;
+  padding: 3rem;
+
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
 }
